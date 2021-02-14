@@ -1,0 +1,4 @@
+kivy_venv/Lib
+kivy_venv/Scripts
+kivy_venv/share
+kivy_venv/pyvenv.cfg
