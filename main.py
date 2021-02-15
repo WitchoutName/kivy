@@ -10,9 +10,17 @@ from kivy.properties import ObjectProperty
 from kivy.graphics import *
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.uix.popup import Popup
+
+
+def show_popup():
+    show = P()
+    show.open()
 
 
 class MainWindow(Screen):
+    def btn(self):
+        show_popup()
     pass
 
 
@@ -25,6 +33,10 @@ class WindowManager(ScreenManager):
 
 
 kv = Builder.load_file("my.kv")
+
+
+class P(Popup):
+    pass
 
 
 class MyMainApp(App):

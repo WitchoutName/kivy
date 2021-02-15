@@ -18,6 +18,8 @@ WindowManager:
             text: "submit"
             on_release:
                 app.root.current = "second" if pswd.text == "pswd" else "main"
+                if pswd.text != "pswd": root.btn()
+                pswd.text = ""
                 root.manager.transition.direction = "left"
 
 <SecondWindow>:
@@ -28,3 +30,11 @@ WindowManager:
         on_release:
             app.root.current = "main"
             root.manager.transition.direction = "right"
+
+<P>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'wrong pswd'
+    Button:
+        text: 'Click me to dismiss'
+        on_press: root.dismiss()
