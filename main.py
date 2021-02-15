@@ -8,29 +8,28 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.graphics import *
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
 
 
-class Touch(Widget):
-    def __init__(self, **kwargs):
-        super(Touch, self).__init__(**kwargs)
-
-        with self.canvas:
-            Color(1,0,0,1,mode="rgba")
-
-    def on_touch_down(self, touch):
-        self.rect.pos = touch.pos
-        self.btn.opacity = 0.5
-
-    def on_touch_move(self, touch):
-        self.rect.pos = touch.pos
-
-    def on_touch_up(self, touch):
-        self.btn.opacity = 1
+class MainWindow(Screen):
+    pass
 
 
-class MyApp(App):
+class SecondWindow(Screen):
+    pass
+
+
+class WindowManager(ScreenManager):
+    pass
+
+
+kv = Builder.load_file("my.kv")
+
+
+class MyMainApp(App):
     def build(self):
-        return Touch()
+        return kv
 
 
-MyApp().run()
+MyMainApp().run()

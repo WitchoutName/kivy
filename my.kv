@@ -1,6 +1,30 @@
-<Touch>:
-    btn: btn
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    pswd: pswd
+    name: "main"
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:2
+            Label:
+                text: "Password"
+            TextInput:
+                id: pswd
+                multiline: False
+        Button:
+            text: "submit"
+            on_release:
+                app.root.current = "second" if pswd.text == "pswd" else "main"
+                root.manager.transition.direction = "left"
+
+<SecondWindow>:
+    name: "second"
 
     Button:
-        id: btn
-        text: "btn"
+        text: "go back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
