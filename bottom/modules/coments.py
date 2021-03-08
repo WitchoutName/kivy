@@ -3,13 +3,10 @@ from kivy.uix.scrollview import ScrollView
 from kivymd.uix.boxlayout import BoxLayout
 from kivymd.uix.label import MDLabel
 from kivymd.uix.list import MDList, TwoLineAvatarListItem, ImageLeftWidget,ImageRightWidget, IconRightWidget
+import json
 
-isues = [
-    {"status": "progress", "title": "Not loading on Samsung Galaxy J9", "user": "John"},
-    {"status": "closed", "title": "does work on nokia 3310?", "user": "Marry"},
-    {"status": "solved", "title": "can't access options", "user": "deleted"},
-    {"status": "solved", "title": "volume stuck on 20%", "user": "Bobby"},
-]
+with open("../issues.json") as file:
+    issues = json.load(file)
 
 
 
@@ -34,7 +31,7 @@ class Coments(BoxLayout):
         super(Coments, self).__init__(orientation="horizontal")
         scrollview = ScrollView()
         list = MDList()
-        for i in isues:
+        for i in issues:
             list.add_widget(MyItem(title=i['title'], user=i['user'], status=i["status"]))
         scrollview.add_widget(list)
         self.add_widget(scrollview)
