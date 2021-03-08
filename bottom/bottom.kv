@@ -108,18 +108,7 @@ BoxLayout:
                 root.ids.label.text = str(round(int(root.ids.vaha.text) / ((int(root.ids.vyska.text)/100) ** 2) * 100) / 100)
 <FormScreen>
     name:'formscreen'
-    PageLayout:
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 0, 1, 1, 0.5
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            text:'Form Screen'
-            font_style: 'H2'
-            halign: 'center'
-            pos_hint : {'center_y':0.85}
+
 <TableScreen>:
     name:'tablescreen'
     PageLayout:
